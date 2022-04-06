@@ -23,6 +23,9 @@ type Features struct {
 	// When reenabled, OLM will recreate the "Copied CSVs" for each
 	// cluster scoped operator.
 	DisableCopiedCSVs *bool `json:"disableCopiedCSVs,omitempty"`
+
+	// EnableFailForwardUpgrades is used to enable fail-forward upgrades
+	EnableFailForwardUpgrades *bool `json:"enableFailForwardUpgrades,omitempty"`
 }
 
 // OLMConfigStatus is the status for an OLMConfig resource.
