@@ -89,6 +89,10 @@ type OperatorGroupSpec struct {
 	// +kubebuilder:default=Default
 	// +optional
 	UpgradeStrategy UpgradeStrategy `json:"upgradeStrategy,omitempty"`
+
+	// Ignore global catalog sources during resolution
+	// +optional
+	IgnoreGlobalCatalogSources bool `json:"ignoreGlobalCatalogSources,omitempty"`
 }
 
 // OperatorGroupStatus is the status for an OperatorGroupResource.
