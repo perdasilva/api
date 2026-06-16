@@ -112,6 +112,10 @@ func (b *bundleLoader) calculateCompressedBundleSize() error {
 // collectWalkErrs calls the given walk func and appends any non-nil, non skip dir error returned to the given errors slice.
 func collectWalkErrs(walk filepath.WalkFunc, errs *[]error) filepath.WalkFunc {
 	return func(path string, f os.FileInfo, err error) (walkErr error) {
+		if err != nil {
+			*errs = append(*errs, err)
+			return nil
+		}
 		if walkErr = walk(path, f, err); walkErr != nil && walkErr != filepath.SkipDir {
 			*errs = append(*errs, walkErr)
 			return nil
